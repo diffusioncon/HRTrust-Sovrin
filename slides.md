@@ -31,10 +31,8 @@ Source: [](https://blog.hubstaff.com/employee-onboarding-best-practices/)
 
 - Send out forms to employees in advance of their first day (as mentioned above).
 - Put forms online and automate them as much as possible to reduce time.
-- Have a buddy walk new hires through the forms to make completing them easier and more efficient.
-- Load forms into a portal that can be accessed at any time so employees can complete them during a quiet period, at home, or throughout the week. That way they won’t have to set aside a large chunk of time in one sitting (refer back to #4 to see how a resource center can help with this).
 
-Source: https://blog.hubstaff.com/employee-onboarding-best-practices/
+Many more at: https://blog.hubstaff.com/employee-onboarding-best-practices/
 
 ## How about external contractors?
 
@@ -53,12 +51,24 @@ employees and *increases frustration*.
 - Facebook created a smooth onboarding process but they didn't manage to
   cut down on the forms
 
-## Which forms exist?
-
 ## Who's affected by 
+
+- contractors
+- enterprises
+
+## Solution
+
+TODO describe and add technical details
+
+## Customers
+
+- SMEs
+- corporate
+
+## Business model
 
 TODO
 
-# Glossary
+## Future milestones
 
-- Onboarding:
+TODO
