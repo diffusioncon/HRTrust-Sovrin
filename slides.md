@@ -3,72 +3,183 @@ title: I trust you to verify her accessing my enterprise IT services
 theme: black
 ---
 
-# I trust you verifing her accessing my enterprise IT services
+# Onboarding of external contractors made easy!
 
-# Onboarding of external contractors
+## Good onboarding is important
+
+<!-- ![](https://bloghubstaffcom.lightningbasecdn.com/wp-content/uploads/2018/04/ZfEJ6xdDSUQqvMQMl-ttinkviHR5F7ac0kvYRDBhhkrV8ZS8BimK5Ak2NVi1m0m9U2vX1abEoQk2kp3fomT-Yp_LSHmRs6M8rZ9eLWxuOq-iCXRqpI6ZA-3XZpYSMAppf7pWT811.png) -->
+![](./assets/ZfEJ6xdDSUQqvMQMl-ttinkviHR5F7ac0kvYRDBhhkrV8ZS8BimK5Ak2NVi1m0m9U2vX1abEoQk2kp3fomT-Yp_LSHmRs6M8rZ9eLWxuOq-iCXRqpI6ZA-3XZpYSMAppf7pWT811.png)
+
+Source: [blog.hubstaff.com](https://blog.hubstaff.com/employee-onboarding-best-practices/)
+
+---
+
+> Facebook has employees launch into their first projects within *45
+> minutes* of starting with the company.
+
+
+Source: [blog.hubstaff.com](https://blog.hubstaff.com/employee-onboarding-best-practices/)
 
 # Current process
 
 ```{.render_plantuml args="-Sbackgroundcolor=grey -SdefaultFontSize=16"}
 !include assets/onboarding-process.plantuml
+
 ```
-
-## A good onboarding process is important
-
-![](https://bloghubstaffcom.lightningbasecdn.com/wp-content/uploads/2018/04/ZfEJ6xdDSUQqvMQMl-ttinkviHR5F7ac0kvYRDBhhkrV8ZS8BimK5Ak2NVi1m0m9U2vX1abEoQk2kp3fomT-Yp_LSHmRs6M8rZ9eLWxuOq-iCXRqpI6ZA-3XZpYSMAppf7pWT811.png)
-
-Source: [](https://blog.hubstaff.com/employee-onboarding-best-practices/)
-
----
-
-> Facebook has employees launch into their first projects within 45
-> minutes of starting with the company.
-
-
-Source: [](https://blog.hubstaff.com/employee-onboarding-best-practices/)
-
-## How to do it?
-
-- Send out forms to employees in advance of their first day (as mentioned above).
-- Put forms online and automate them as much as possible to reduce time.
-
-Many more at: https://blog.hubstaff.com/employee-onboarding-best-practices/
-
-## How about external contractors?
-
-> The relationship is often less fraught, less hierarchical, and doesn’t
-> come with the same expectations.
-
-Source: [](https://hbr.org/2015/08/7-tips-for-managing-freelancers-and-independent-contractors)
 
 # Forms, forms, forms
 
-.. are one of the issues that *slows down* the onboarding process of
-employees and *increases frustration*.
+.. *slow down* the onboarding process of employees and *increase
+frustration*.
 
-## How big is the pain?
+## Who's affected by it
 
-- Facebook created a smooth onboarding process but they didn't manage to
-  cut down on the forms
+::::::::: incremental
 
-## Who's affected by 
+- External contractors
+- New employees
+- Managers
 
-- contractors
-- enterprises
+:::::::::
 
-## Solution
+# Solution?
 
-TODO describe and add technical details
+![](./assets/hrtrust-before.svg)
+
+<!-- ::::::::: {.columns} -->
+
+<!-- :::{.column} -->
+
+<!-- ![](./assets/hrtrust-before.svg) -->
+
+<!-- ::: -->
+<!-- :::{.column} -->
+
+<!-- ![](./assets/hrtrust-after.svg) -->
+
+<!-- ::: -->
+
+<!-- ::::::::: -->
+
+## Solution!
+
+
+![](./assets/hrtrust-after.svg)
+
+# Architecture
+
+![](./assets/architecture.svg)
+
+## New SSI-based onboarding process
+
+```{.render_plantuml args="-Sbackgroundcolor=grey -SdefaultFontSize=16"}
+@startuml
+actor "External Contractor" as a_ex_employee
+actor "Project Manager" as a_company_pm
+actor "IT" as a_company_it
+actor "Customer" as a_customer
+
+a_company_it --> a_company_pm: Issue credential to be a trusted manager
+a_customer -> a_company_pm: Order a new project
+a_company_pm -> a_ex_employee: We need support
+
+group Onboarding Software X
+    a_ex_employee -> a_company_pm: I don't have access to the Dashboard
+    a_company_pm -> a_ex_employee: Okay, here are your credentials
+end
+
+@enduml
+```
+
+## SSI-based authentication
+
+```{.render_plantuml args="-Sbackgroundcolor=grey -SdefaultFontSize=16"}
+@startuml
+actor "External Contractor" as a_ex_employee
+database "Application" as a_application
+database "Sovrin Blockchain" as a_blockchain
+
+a_ex_employee -> a_application: Access application
+a_application -> a_ex_employee: Request credentials
+a_ex_employee -> a_application: Confirm credentials request
+a_application -> a_blockchain: View public identity details
+a_application -> a_application: Verify credentials
+a_application -> a_ex_employee: Grant/deny access
+
+@enduml
+```
+
+# Demo
+
+----
+
+![](./assets/connect.jpg)
+
+----
+
+![](./assets/receive_credential.jpg)
+
+----
+
+![](./assets/login.jpg)
+
+----
+
+![](./assets/present_proof.jpg)
+
+----
+
+![](./assets/dashboard.jpg)
+
+# Business
 
 ## Customers
 
 - SMEs
-- corporate
+- Corporates
 
 ## Business model
 
-TODO
+We're not sure yet.
+
+::::::::: incremental
+
+- Subscription?
+- Usage?
+- Definitely find early adopters who support development!
+
+:::::::::
+
+## Challenges
+
+::::::::: incremental
+
+- Taking away tasks from IT
+- New paradigm for doing IT, user self-service
+- Time it takes for changing existing processes
+
+:::::::::
+
+## Competition
+
+::::::::: incremental
+
+- SSO solutions like Auth0
+- SELF (esatus)
+
+:::::::::
 
 ## Future milestones
 
-TODO
+::::::::: incremental
+
+- Integration with Slack, GitHub, Office365, Jira, Confluence
+- Integration with Active Directory
+- Defining/standardizing the schema for applications
+- Hardening
+
+:::::::::
+
+# Thank you!
+
+What do you think?
