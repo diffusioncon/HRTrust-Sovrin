@@ -25,5 +25,4 @@ end
 group Onboarding Software Z
     a_ex_employee -> a_company_pm: I don't have access to Z
 end
-
 @enduml

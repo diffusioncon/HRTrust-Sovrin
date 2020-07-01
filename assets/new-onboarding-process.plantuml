@@ -1,0 +1,15 @@
+@startuml
+actor "External Contractor" as a_ex_employee
+actor "Project Manager" as a_company_pm
+actor "IT" as a_company_it
+actor "Customer" as a_customer
+
+a_company_it --> a_company_pm: Issue credential to be a trusted manager
+a_customer -> a_company_pm: Order a new project
+a_company_pm -> a_ex_employee: We need support
+
+group Onboarding Software X
+    a_ex_employee -> a_company_pm: I don't have access to the Dashboard
+    a_company_pm -> a_ex_employee: Okay, here are your credentials
+end
+@enduml

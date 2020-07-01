@@ -1,0 +1,13 @@
+@startuml
+actor "External Contractor" as a_ex_employee
+database "Application" as a_application
+database "Sovrin Blockchain" as a_blockchain
+
+a_ex_employee -> a_application: Access application
+a_application -> a_ex_employee: Request credentials
+a_ex_employee -> a_application: Confirm credentials request
+a_application -> a_blockchain: View public identity details
+a_application -> a_application: Verify credentials
+a_application -> a_ex_employee: Grant/deny access
+
+@enduml

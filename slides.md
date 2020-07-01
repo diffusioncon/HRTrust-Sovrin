@@ -22,10 +22,9 @@ Source: [blog.hubstaff.com](https://blog.hubstaff.com/employee-onboarding-best-p
 
 # Current process
 
-```{.render_plantuml args="-Sbackgroundcolor=grey -SdefaultFontSize=16"}
-!include assets/onboarding-process.plantuml
+<!-- assets/onboarding-process.plantuml -->
 
-```
+![](./assets/onboarding-process.png){width=45%}
 
 # Forms, forms, forms
 
@@ -72,42 +71,15 @@ frustration*.
 
 ## New SSI-based onboarding process
 
-```{.render_plantuml args="-Sbackgroundcolor=grey -SdefaultFontSize=16"}
-@startuml
-actor "External Contractor" as a_ex_employee
-actor "Project Manager" as a_company_pm
-actor "IT" as a_company_it
-actor "Customer" as a_customer
+<!-- ./assets/new-onboarding-process.plantuml -->
 
-a_company_it --> a_company_pm: Issue credential to be a trusted manager
-a_customer -> a_company_pm: Order a new project
-a_company_pm -> a_ex_employee: We need support
-
-group Onboarding Software X
-    a_ex_employee -> a_company_pm: I don't have access to the Dashboard
-    a_company_pm -> a_ex_employee: Okay, here are your credentials
-end
-
-@enduml
-```
+![](./assets/new-onboarding-process.png){width=65%}
 
 ## SSI-based authentication
 
-```{.render_plantuml args="-Sbackgroundcolor=grey -SdefaultFontSize=16"}
-@startuml
-actor "External Contractor" as a_ex_employee
-database "Application" as a_application
-database "Sovrin Blockchain" as a_blockchain
+<!-- ./assets/ssi-auth.plantuml -->
 
-a_ex_employee -> a_application: Access application
-a_application -> a_ex_employee: Request credentials
-a_ex_employee -> a_application: Confirm credentials request
-a_application -> a_blockchain: View public identity details
-a_application -> a_application: Verify credentials
-a_application -> a_ex_employee: Grant/deny access
-
-@enduml
-```
+![](./assets/ssi-auth.png){width=65%}
 
 # Demo
 
